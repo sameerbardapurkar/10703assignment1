@@ -55,7 +55,6 @@ def print_env_info(env):
 
 
 def print_model_info(env, state, action):
-    
     transition_table_row = env.P[state][action]
     print(
         ('According to transition function, '
@@ -71,22 +70,15 @@ def print_model_info(env, state, action):
 
 def main():
     # create the environment
-    env = gym.make('Stochastic-8x8-FrozenLake-v0')
+    env = gym.make('FrozenLake-v0')
     # uncomment next line to try the deterministic version
     # env = gym.make('Deterministic-4x4-FrozenLake-v0')
 
     print_env_info(env)
-
-    print_model_info(env, 53, lake_env.LEFT)
-    print_model_info(env, 53, lake_env.DOWN)
-    print_model_info(env, 53, lake_env.RIGHT)
-    print_model_info(env, 53, lake_env.UP)
-
-    '''
     print_model_info(env, 0, lake_env.DOWN)
     print_model_info(env, 1, lake_env.DOWN)
     print_model_info(env, 14, lake_env.RIGHT)
-    '''
+
     input('Hit enter to run a random policy...')
 
     total_reward, num_steps = run_random_policy(env)
